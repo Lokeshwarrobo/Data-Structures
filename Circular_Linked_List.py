@@ -84,7 +84,33 @@ class Circular_Linked_List:
                 while cur.data == key:
                     prev.next = cur.next
                     cur = cur.next
+    def remove_node(self, node):
+        if self.head == node:
+            prev = None
+            cur = self.head
+            while cur.next != self.head:
+                cur = cur.next
+            cur.next = self.head.next
+            self.head = self.head.next
+        else:
+            prev = None
+            cur = self.head
+            while cur.next != self.head:
+                prev = cur
+                cur = cur.next
+                while cur == node:
+                    prev.next = cur.next
+                    cur = cur.next
 
+    def josephus_circle(self, step):
+        cur = self.head
+        while len(self)>1:
+            count = 1
+            while count != step:
+                cur = cur.next
+                count += 1
+            self.remove_node(cur)
+            cur = cur.next
     def print_list(self):
         cur = self.head
         while cur:
@@ -101,5 +127,5 @@ CL.append("B")
 CL.append("C")
 CL.append("D")
 CL.prepend("E")
-CL.remove_element("A")
+CL.josephus_circle(3)
 CL.print_list()
