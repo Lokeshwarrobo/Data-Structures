@@ -36,6 +36,7 @@ class Circular_Linked_List:
             cur_node.next = new_node
         self.head = new_node
 
+<<<<<<< HEAD
     def __len__(self):
         cur_node = self.head
         l = 0
@@ -111,6 +112,8 @@ class Circular_Linked_List:
                 count += 1
             self.remove_node(cur)
             cur = cur.next
+=======
+>>>>>>> origin/master
     def print_list(self):
         cur = self.head
         while cur:
@@ -127,5 +130,8 @@ CL.append("B")
 CL.append("C")
 CL.append("D")
 CL.prepend("E")
+<<<<<<< HEAD
 CL.josephus_circle(3)
+=======
+>>>>>>> origin/master
 CL.print_list()
