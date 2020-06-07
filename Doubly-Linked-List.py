@@ -65,7 +65,30 @@ class Doubly_Linked_List:
         pre.next = cur_node.next
         cur_node.prev = None
 
+    def pairs_with_sum(self, sum):
+        pairs = list()
+        p = self.head
+        q = None
+        while p:
+            q = p.next
+            while q:
+                if p.data + q.data == sum:
+                    pairs.append('(' + str(p.data)+"," + str(q.data) + ')')
+                q = q.next
+            p = p.next
+        return pairs
 
+    def reverse(self):
+        cur_node = self.head
+        temp = None
+        while cur_node:
+            temp = cur_node.prev
+            cur_node.prev = cur_node.next
+            cur_node.next = temp
+            cur_node = cur_node.prev
+
+        if temp:
+            self.head = temp.prev
 
     def print_list(self):
         cur_list = self.head
@@ -80,7 +103,6 @@ dl.append(2)
 dl.append(3)
 dl.append(4)
 dl.append(5)
-dl.delete_node(2)
-dl.add_before_node(3, 2)
-dl.add_after_node(1, 2)
+dl.reverse()
 dl.print_list()
+
